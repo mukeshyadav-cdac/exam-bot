@@ -1,7 +1,7 @@
 {
-    "get_started_one": "Hi {user_name}, I'm Tchok, and if you let me, I'll be your 💰 coach.",
-    "get_started_two": "First, I want to thank you for trying out our early prototype of best and simplest tool to help you control your spending and fill up piggy bank.",
-    "get_started_three": "Have a look at menu  below and let's get started.",
+    "get_started": "Do you want to go ahead ?",
+    "get_started_no": "Let me know when you want to start.",
+    "get_started_yes": "What is your level ?",
 
     "start_analysis_one": "My job is to help you enjoy more ⛱  and more 🎸 and more 🎁 without needing to look at 📊 or use a 💻 or be like 😱",
     "start_analysis_two": "Do you know what you’d like to save money for?",
@@ -23,7 +23,6 @@
 
     "bot_ask_category_topic": "Thanks! I will filter and prioritise news coming from {location} before all other news.",
     "before_location_msg": "📍Location helps me track and 🚨 alert you to the most relevant news around you. Would you like to share your location ?",
-    "get_started": "🙋‍♂️👋 Welcome back! Ready to get some Goya dose...",
     "choose_category_text":"I am currently tracking news across a few categories. Choose what interests you the most.",
     "not_now_text":"If you are not sure, just say Not Now",
     "explore": "💪 Explorers are the best. They find treasures...",

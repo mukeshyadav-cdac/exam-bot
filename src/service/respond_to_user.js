@@ -3,15 +3,33 @@ import User from '../models/user.js';
 
 let respondToUser = (response) => {
   switch(response.responseType) {
+
+    case 'TEXT_WITH_QUICK_REPLY':
+      facebookApi.senderAction(response.userId, 'typing_on');
+      facebookApi.sendQuickReplyMessage(response.userId, response.responseText, response.quickReplyButtons.template, () =>{
+        facebookApi.senderAction(response.userId, 'typing_off');
+        return;
+      });
+      break;
+
     case 'TEXT':
       facebookApi.senderAction(response.userId, 'typing_on');
-      setTimeout(() => {
+      facebookApi.sendTextMessage(response.userId, response.responseText, () => {
         facebookApi.senderAction(response.userId, 'typing_off');
-        facebookApi.sendTextMessage(response.userId, response.responseText, () => {
+        return;
+      });
+      break;
+
+    case 'THREE_TEXT_WITH_GENERIC_TEMPLATE':
+      facebookApi.sendTextMessage(response.userId, response.responseText, () => {
+        facebookApi.senderAction(response.userId, 'typing_on');
+        facebookApi.sendGenericTemplate(response.userId, response.responseAttachment, function() {
+          facebookApi.senderAction(response.userId, 'typing_off');
           return;
         });
-      }, 3000)
+      });
       break;
+
     case 'BUTTON_WEBVIEW':
       facebookApi.senderAction(response.userId, 'typing_on');
       setTimeout(() => {
@@ -21,37 +39,7 @@ let respondToUser = (response) => {
         });
       }, 3000)
       break;
-    case 'THREE_TEXT_WITH_GENERIC_TEMPLATE':
-      User.findOne({userId: response.userId}, (err, user) => {
-        if (err) {
-          console.log(err);
-        } else {
-          var textMessage = response.responseText;
-          var textMessageArray = textMessage.split("++");
-          facebookApi.sendTextMessage(response.userId, textMessageArray[0].replace('{user_name}', user.first_name), () => {
-            facebookApi.senderAction(response.userId, 'typing_on');
-            setTimeout(() =>{
-              facebookApi.senderAction(response.userId, 'typing_off');
-              facebookApi.sendTextMessage(response.userId, textMessageArray[1], () => {
-                facebookApi.senderAction(response.userId, 'typing_on');
-                setTimeout(() => {
-                  facebookApi.senderAction(response.userId, 'typing_off');
-                  facebookApi.sendTextMessage(response.userId, textMessageArray[2], () => {
-                    facebookApi.senderAction(response.userId, 'typing_on');
-                    setTimeout(() =>{
-                      facebookApi.sendGenericTemplate(response.userId, response.responseAttachment, function() {
-                        facebookApi.senderAction(response.userId, 'typing_off');
-                        return;
-                      });
-                    }, 3000);
-                  })
-                }, 3000)
-              })
-            }, 3000)
-          });
-        }
-      });
-      break;
+
     case 'THREE_TEXT_WITH_WEB_VIEW':
       var textMessage = response.responseText;
       var textMessageArray = textMessage.split("++");
@@ -71,6 +59,7 @@ let respondToUser = (response) => {
         }, 3000);
       });
       break;
+
     case 'TWO_TEXT_WITH_QUICK_REPLY':
       var textMessage = response.responseText;
       var textMessageArray = textMessage.split("++");
@@ -84,6 +73,7 @@ let respondToUser = (response) => {
         }, 2000);
       });
       break;
+
     case 'THREE_TEXT_WITH_QUICK_REPLY':
       var textMessage = response.responseText;
       var textMessageArray = textMessage.split("++");
@@ -103,6 +93,7 @@ let respondToUser = (response) => {
         }, 3000);
       });
       break;
+
     case 'FALLBACK':
       facebookApi.sendTextMessage(response.userId, response.responseText, function(cb) {
         return;

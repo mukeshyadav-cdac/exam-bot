@@ -1,3 +1,23 @@
+let quickReplyButtonsYesOrNo = (inputData, quickReplyCb) => {
+  let quickReplyButtons = {
+    "template": [
+      {
+        "content_type": "text",
+        "title": "Yes",
+        "payload": "get_started_yes"
+      },
+      {
+        "content_type": "text",
+        "title": "No",
+        "payload": "get_started_no"
+      }
+    ]
+  }
+  quickReplyCb(quickReplyButtons);
+}
+
+
+
 let createButtonWebViewTemplate = (inputData, templateData, genericTemplateCb) => {
   let genericTemplateArray =  [{
     "title": templateData.title,
@@ -37,24 +57,6 @@ let createGenericTemplate = (inputData, startList, genericTemplateCb) => {
   genericTemplateCb(genericTemplateArray);
 }
 
-let quickReplyButtonsYesOrNotYet = (inputData, quickReplyCb) => {
-  let quickReplyButtons = {
-    "template": [
-      {
-        "content_type": "text",
-        "title": "Yes",
-        "payload": "yes"
-      },
-      {
-        "content_type": "text",
-        "title": "Not yet",
-        "payload": "not_yet"
-      }
-    ]
-  }
-  quickReplyCb(quickReplyButtons);
-}
-
 let quickReplyButtonsIHaveThemHandy = (inputData, quickReplyCb) => {
   let quickReplyButtons = {
     "template": [
@@ -82,8 +84,8 @@ let createWebViewTemplate = (inputData, viewList, genericTemplateCb) => {
 }
 
 export {
+  quickReplyButtonsYesOrNo,
   createGenericTemplate,
-  quickReplyButtonsYesOrNotYet,
   quickReplyButtonsIHaveThemHandy,
   createWebViewTemplate,
   createButtonWebViewTemplate

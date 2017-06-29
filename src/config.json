@@ -1,0 +1,14 @@
+{
+  "PORT": 5000,
+  "MONGODB_URI": "mongodb://heroku_mknlbm1f:q8i97lh7ri73fa48lqt6ieftlj@ds161551.mlab.com:61551/heroku_mknlbm1f",
+  "facebook": {
+    "facebook_url": "https://graph.facebook.com/v2.6",
+    "verification_token": "this_is_exam_bot",
+    "page_token": "EAAETpQWIDO4BAOkVR13FogvftWsfcX3T3InGZBpuT4VZAL2umZAej4neazyEYZApljYqvgDyOvNnDuhZAzNDQTeRNpq4nVCMCRHAN8BOwh6cKA9MRFuUt05iDMR21Ilir1PjfmsnWPj6ZBE7Pi9G9i7JDv3XXtHXIHjklA7ccpfAZDZD",
+    "page_id": "305957363155886"
+  },
+  "app": {
+    "platform": "facebook",
+    "bot": "exam"
+  }
+}
