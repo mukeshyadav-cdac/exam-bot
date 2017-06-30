@@ -1,22 +1,55 @@
-let quickReplyButtonsYesOrNo = (inputData, quickReplyCb) => {
+let quickReplyButtonsYesOrNo = (inputData, template, quickReplyCb) => {
   let quickReplyButtons = {
     "template": [
       {
         "content_type": "text",
         "title": "Yes",
-        "payload": "get_started_yes"
+        "payload": template.yes_payload
       },
       {
         "content_type": "text",
         "title": "No",
-        "payload": "get_started_no"
+        "payload": template.no_payload
       }
     ]
   }
   quickReplyCb(quickReplyButtons);
 }
 
+let createGenericTemplate = (inputData, startList, genericTemplateCb) => {
+  let genericTemplateArray = [];
+  for(let i=0; i < startList.length; i++) {
+    genericTemplateArray.push({
+      "title": startList[i].title,
+      "subtitle": startList[i].overview,
+      "buttons": [
+        {
+          "type": "postback",
+          "title": startList[i].buttonTitle,
+          "payload": startList[i].payload
+        }
+      ]
+    });
+  }
+  genericTemplateCb(genericTemplateArray);
+}
 
+let createImageTemplateWithQr = (inputData, templateData, genericTemplateCb) => {
+  let data = {
+    imageUrl: templateData.imageUrl,
+    qr: {
+      "template": [
+        {
+          "content_type": "text",
+          "title": templateData.title,
+          "payload": templateData.payload
+        }
+      ],
+      "text": "👇"
+    }
+  }
+  genericTemplateCb(data)
+}
 
 let createButtonWebViewTemplate = (inputData, templateData, genericTemplateCb) => {
   let genericTemplateArray =  [{
@@ -36,24 +69,6 @@ let createButtonWebViewTemplate = (inputData, templateData, genericTemplateCb) =
       }
     ]
   }]
-  genericTemplateCb(genericTemplateArray);
-}
-
-let createGenericTemplate = (inputData, startList, genericTemplateCb) => {
-  let genericTemplateArray = [];
-  for(let i=0; i < startList.length; i++) {
-    genericTemplateArray.push({
-      "title": startList[i].title,
-      "subtitle": startList[i].overview,
-      "buttons": [
-        {
-          "type": "postback",
-          "title": startList[i].buttonTitle,
-          "payload": startList[i].payload
-        }
-      ]
-    });
-  }
   genericTemplateCb(genericTemplateArray);
 }
 
@@ -88,5 +103,6 @@ export {
   createGenericTemplate,
   quickReplyButtonsIHaveThemHandy,
   createWebViewTemplate,
-  createButtonWebViewTemplate
+  createButtonWebViewTemplate,
+  createImageTemplateWithQr
 };

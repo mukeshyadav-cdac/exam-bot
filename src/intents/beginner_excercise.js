@@ -3,11 +3,11 @@ import * as platformTemplate from '../datasource/platform_template.js';
 let intent = (inputData, object, cb) => {
   let content = require('../contents/'+inputData.bot+'.json');
 
-  let startAnalyisText = content.get_started;
+  let startAnalyisText = content.beginner_excercise;
 
   let template = {
-    yes_payload: "get_started_yes",
-    no_payload: "get_started_no"
+    yes_payload: "beginner_excercise_yes",
+    no_payload: "beginner_excercise_no"
   }
 
   platformTemplate.quickReplyButtonsYesOrNo(inputData, template, function(quickReplyButtonsTemplate) {

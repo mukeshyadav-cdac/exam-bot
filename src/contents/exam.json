@@ -1,7 +1,17 @@
 {
     "get_started": "Do you want to go ahead ?",
+
     "get_started_no": "Let me know when you want to start.",
     "get_started_yes": "What is your level ?",
+
+    "beginner_one": "Great. Thanks!",
+    "beginner_two": "What would you like to revise today ?",
+
+    "beginner_excercise": "Are you ready to do an excercise ?",
+
+    "beginner_excercise_no": "Let me know when you want to continue.",
+    "beginner_excercise_yes": "Done.",
+
 
     "start_analysis_one": "My job is to help you enjoy more ⛱  and more 🎸 and more 🎁 without needing to look at 📊 or use a 💻 or be like 😱",
     "start_analysis_two": "Do you know what you’d like to save money for?",

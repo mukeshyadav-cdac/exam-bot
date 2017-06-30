@@ -20,11 +20,35 @@ let respondToUser = (response) => {
       });
       break;
 
-    case 'THREE_TEXT_WITH_GENERIC_TEMPLATE':
+    case 'TEXT_WITH_GENERIC_TEMPLATE':
       facebookApi.sendTextMessage(response.userId, response.responseText, () => {
         facebookApi.senderAction(response.userId, 'typing_on');
         facebookApi.sendGenericTemplate(response.userId, response.responseAttachment, function() {
           facebookApi.senderAction(response.userId, 'typing_off');
+          return;
+        });
+      });
+      break;;
+
+    case 'TWO_TEXT_WITH_GENERIC_TEMPLATE':
+      var textMessage = response.responseText;
+      var textMessageArray = textMessage.split("++");
+      facebookApi.sendTextMessage(response.userId, textMessageArray[0], () => {
+        facebookApi.senderAction(response.userId, 'typing_on');
+        setTimeout(function () {
+          facebookApi.senderAction(response.userId, 'typing_off');
+          facebookApi.sendTextMessage(response.userId, textMessageArray[1], () => {
+            facebookApi.sendGenericTemplate(response.userId, response.responseAttachment, function () {
+              return;
+            });
+          });
+        }, 2000);
+      });
+      break;
+
+    case 'IMAGE_WITH_QR':
+      facebookApi.sendImage(response.userId, response.responseImage, function () {
+        facebookApi.sendQuickReplyMessage(response.userId, response.responseText, response.quickReplyButtons, function () {
           return;
         });
       });

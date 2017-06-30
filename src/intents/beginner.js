@@ -1,34 +1,36 @@
 import * as platformTemplate from '../datasource/platform_template.js';
+
+
 let  startList = [
     {
-      "title": "Beginner",
-      "overview": "Beginner starts here.",
-      "buttonTitle": "Beginner",
-      "payload": "beginner"
+      "title": "Topic 1",
+      "overview": "Description.",
+      "buttonTitle": "Topic 1",
+      "payload": "beginner_topic"
     },
     {
-      "title": "Intermediate",
-      "overview": "Intermediate starts here.",
-      "buttonTitle": "Intermediate",
-      "payload": "intermediate"
+      "title": "Topic 2",
+      "overview": "Description.",
+      "buttonTitle": "Topic 2",
+      "payload": "beginner_topic"
     },
     {
-      "title": "Advanced",
-      "overview": "Advanced starts  here",
-      "buttonTitle": "Advanced",
-      "payload": "advanced"
+      "title": "Topic 3",
+      "overview": "Description.",
+      "buttonTitle": "Topic 3",
+      "payload": "beginner_topic"
     }
   ]
 
 let intent = (inputData, object, cb) => {
   let content = require('../contents/'+inputData.bot+'.json');
 
-  let welcomeResponseText = content.get_started_yes;
+  let welcomeResponseText = content.beginner_one + '++' + content.beginner_two;
 
   platformTemplate.createGenericTemplate(inputData, startList, function(genericTemplate) {
     let outputData = {
       userId: inputData.userId,
-      responseType: 'THREE_TEXT_WITH_GENERIC_TEMPLATE',
+      responseType: 'TWO_TEXT_WITH_GENERIC_TEMPLATE',
       responseText: welcomeResponseText,
       responseImage: null,
       responseAudio: null,

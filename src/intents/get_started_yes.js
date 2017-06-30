@@ -28,7 +28,7 @@ let intent = (inputData, object, cb) => {
   platformTemplate.createGenericTemplate(inputData, startList, function(genericTemplate) {
     let outputData = {
       userId: inputData.userId,
-      responseType: 'THREE_TEXT_WITH_GENERIC_TEMPLATE',
+      responseType: 'TEXT_WITH_GENERIC_TEMPLATE',
       responseText: welcomeResponseText,
       responseImage: null,
       responseAudio: null,

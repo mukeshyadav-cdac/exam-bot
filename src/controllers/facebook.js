@@ -63,6 +63,8 @@ let getFBMessage = (req, res) => {
         if (event.postback) {
           facebookMessage.receivedPostbackMessage(event);
         } else if (event.message && event.message.quick_reply) {
+          console.log(event)
+          console.log('cccccccccxxcxcxcxcxcxcxcxcxcxc')
           facebookMessage.receivedQuickReplyMessage(event);
         } else {
           console.log("Webhook received unknown event: ", event);

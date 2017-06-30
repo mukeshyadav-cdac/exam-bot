@@ -3,7 +3,7 @@ import * as platformTemplate from '../datasource/platform_template.js';
 let intent = (inputData, object, cb) => {
   let content = require('../contents/'+inputData.bot+'.json');
 
-  let startAnalyisText = content.get_started_no;
+  let startAnalyisText = content.beginner_excercise_yes;
 
   let outputData = {
     userId: inputData.userId,

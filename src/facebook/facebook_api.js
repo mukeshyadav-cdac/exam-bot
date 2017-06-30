@@ -178,4 +178,45 @@ let sendWebViewTemplate = (userId, text, elements, cb) => {
   });
 }
 
-export { getProfileDetail, senderAction, sendTextMessage, sendQuickReplyMessage, sendGenericTemplate, sendWebViewTemplate};
+let sendImage = (userId, url, cb) => {
+  let fbData = {
+    recipient: {id: userId},
+    message: {
+      "attachment": {
+        "type": "image",
+        "payload": {
+          "url": url,
+        }
+      }
+    }
+  }
+
+
+  request({
+    url: config.facebook.facebook_url+'/me/messages',
+    qs: {access_token: config.facebook.page_token},
+    method: 'POST',
+    json: fbData
+  }, function(error, response, body) {
+    if (error) {
+      console.log('Error sending message: ', error);
+      cb();
+    } else if (response.body.error) {
+      console.log('Error: SendGenericTemplate===', response.body.error);
+      cb();
+    } else {
+      console.log("===Success==SendGenericTemplate=");
+      cb();
+    }
+  });
+}
+
+export {
+  getProfileDetail,
+  senderAction,
+  sendTextMessage,
+  sendQuickReplyMessage,
+  sendGenericTemplate,
+  sendWebViewTemplate,
+  sendImage
+};
