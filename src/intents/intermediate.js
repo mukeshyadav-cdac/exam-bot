@@ -9,19 +9,19 @@ let intent = (inputData, object, cb) => {
         "title": "Topic 1",
         "overview": "Description.",
         "buttonTitle": "Topic 1",
-        "payload": "beginner_topic_1"
+        "payload": "intermediate_topic_1"
       },
       {
         "title": "Topic 2",
         "overview": "Description.",
         "buttonTitle": "Topic 2",
-        "payload": "beginner_topic_2"
+        "payload": "intermediate_topic_2"
       },
       {
         "title": "Topic 3",
         "overview": "Description.",
         "buttonTitle": "Topic 3",
-        "payload": "beginner_topic_3"
+        "payload": "intermediate_topic_3"
       }
     ]
 

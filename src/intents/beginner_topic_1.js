@@ -1,15 +1,15 @@
 import * as platformTemplate from '../datasource/platform_template.js';
 
-const images = require('../contents/images.json');
-
 let LocalStorage = require('node-localstorage').LocalStorage;
 let localStorage = new LocalStorage('./localDatabase');
 
 let intent = (inputData, object, cb) => {
   let content = require('../contents/'+inputData.bot+'.json');
-  let storageKey = inputData.userId + '_beginner_topic';
+  let storageKey = inputData.userId + '_beginner_topic_1';
   let userLevel = localStorage.getItem(storageKey);
-  let contentData = {title: "Next", payload: "beginner_topic"};
+  let contentData = {title: "Next", payload: "beginner_topic_1"};
+  const images = require('../contents/images.json')["beginner"]["topic_1"];
+
   if ( userLevel  ) {
     if ( images[(parseInt(userLevel) + 1)] ) {
       contentData.imageUrl =  images[[(parseInt(userLevel) + 1)]];
@@ -31,7 +31,7 @@ let intent = (inputData, object, cb) => {
     localStorage.removeItem(storageKey);
   }
 
-  platformTemplate.createImageTemplateWithQr(inputData, contentData, function(template) {
+  platformTemplate.createImageTemplateWithTwoQr(inputData, contentData, function(template) {
     let outputData = {
       userId: inputData.userId,
       responseType: 'IMAGE_WITH_QR',

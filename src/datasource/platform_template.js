@@ -51,6 +51,28 @@ let createImageTemplateWithQr = (inputData, templateData, genericTemplateCb) => 
   genericTemplateCb(data)
 }
 
+let createImageTemplateWithTwoQr = (inputData, templateData, genericTemplateCb) => {
+  let data = {
+    imageUrl: templateData.imageUrl,
+    qr: {
+      "template": [
+        {
+          "content_type": "text",
+          "title": templateData.title,
+          "payload": templateData.payload
+        },
+        {
+          "content_type": "text",
+          "title": "Back to top",
+          "payload": "get_started_yes"
+        }
+      ],
+      "text": "👇"
+    }
+  }
+  genericTemplateCb(data)
+}
+
 let createButtonWebViewTemplate = (inputData, templateData, genericTemplateCb) => {
   let genericTemplateArray =  [{
     "title": templateData.title,
@@ -104,5 +126,6 @@ export {
   quickReplyButtonsIHaveThemHandy,
   createWebViewTemplate,
   createButtonWebViewTemplate,
-  createImageTemplateWithQr
+  createImageTemplateWithQr,
+  createImageTemplateWithTwoQr
 };
