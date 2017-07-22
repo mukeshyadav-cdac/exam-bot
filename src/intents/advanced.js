@@ -6,22 +6,22 @@ let intent = (inputData, object, cb) => {
 
   let  startList = [
       {
-        "title": "Topic 1",
+        "title": "Amour",
         "overview": "Description.",
         "buttonTitle": "Topic 1",
-        "payload": "advanced_topic_1"
+        "payload": "advanced_amour"
       },
       {
-        "title": "Topic 2",
+        "title": "Brocante",
         "overview": "Description.",
         "buttonTitle": "Topic 2",
-        "payload": "advanced_topic_2"
+        "payload": "advanced_brocante"
       },
       {
-        "title": "Topic 3",
+        "title": "Familier",
         "overview": "Description.",
         "buttonTitle": "Topic 3",
-        "payload": "advanced_topic_3"
+        "payload": "advanced_familier"
       }
     ]
 

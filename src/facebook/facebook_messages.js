@@ -59,4 +59,15 @@ let receivedQuickReplyMessage = (event) => {
   }
 }
 
-export { receivedPostbackMessage, receivedQuickReplyMessage };
+let receivedTextMessage = (event) => {
+  switch(event.message.payload) {
+    default:
+      let inputData = defineResponse(event, event.message.payload)
+      userInteraction(inputData, (outputData) => {
+        respondToUser(outputData);
+      });
+  }
+}
+
+
+export { receivedPostbackMessage, receivedQuickReplyMessage, receivedTextMessage };

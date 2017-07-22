@@ -18,6 +18,8 @@ let userInteraction = (inputData, cb) => {
   if(!inputData.platform || !inputData.userId || !inputData.bot) {
     cb({"status": "error", "message": "Objects platform, userId and bot are required."});
   } else {
+
+    console.log("****HERE*****");
     if(inputData.isSetIntent) {
 
       let object = {
@@ -43,6 +45,7 @@ let userInteraction = (inputData, cb) => {
           });
       }
     } else {
+      console.log("intent is not set ");
       //code for bot
     }
   }

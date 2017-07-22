@@ -101,6 +101,9 @@ let respondToUser = (response) => {
     case 'THREE_TEXT_WITH_QUICK_REPLY':
       var textMessage = response.responseText;
       var textMessageArray = textMessage.split("++");
+      console.log("splitting "+textMessage);
+
+
       facebookApi.sendTextMessage(response.userId, textMessageArray[0], () => {
         facebookApi.senderAction(response.userId, 'typing_on');
         setTimeout(() => {
@@ -112,6 +115,48 @@ let respondToUser = (response) => {
               facebookApi.sendQuickReplyMessage(response.userId, textMessageArray[2], response.quickReplyButtons.template, () =>{
                 return;
               });
+            }, 3000);
+          });
+        }, 3000);
+      });
+      break;
+
+      case 'MULTI_TEXT_IMAGE_WITH_QUICK_REPLY':
+      var textMessage = response.responseText;
+      var textMessageArray = textMessage.split("++");
+      console.log("splitting "+textMessage);
+
+      
+      facebookApi.sendTextMessage(response.userId, textMessageArray[0], () => {
+        facebookApi.senderAction(response.userId, 'typing_on');
+        setTimeout(() => {
+          facebookApi.senderAction(response.userId, 'typing_off');
+          facebookApi.sendImage(response.userId, textMessageArray[1], function () {
+            facebookApi.senderAction(response.userId, 'typing_on');
+            setTimeout(() => {
+              facebookApi.senderAction(response.userId, 'typing_off');
+              facebookApi.sendTextMessage(response.userId, textMessageArray[2], () => {
+                facebookApi.senderAction(response.userId, 'typing_on');
+                setTimeout(() => {
+                  facebookApi.senderAction(response.userId, 'typing_off');
+                    facebookApi.sendTextMessage(response.userId, textMessageArray[3], () => {
+                      facebookApi.senderAction(response.userId, 'typing_on');
+                      setTimeout(() => {
+                        facebookApi.senderAction(response.userId, 'typing_off');
+                    facebookApi.sendTextMessage(response.userId, textMessageArray[4], () => {
+                      facebookApi.senderAction(response.userId, 'typing_on');
+                         facebookApi.sendQuickReplyMessage(response.userId, textMessageArray[5], response.quickReplyButtons.template, () =>{
+                          return;
+                        });
+                      setTimeout(() => {},3000)
+                    }, 3000);
+                      })
+                      
+                    });
+                }, 3000)
+                
+              })
+              
             }, 3000);
           });
         }, 3000);

@@ -8,8 +8,8 @@ let intent = (inputData, object, cb) => {
       {
         "title": "Topic 1",
         "overview": "Description.",
-        "buttonTitle": "Topic 1",
-        "payload": "beginner_topic_1"
+        "buttonTitle": "Bar",
+        "payload": "beginner_bar"
       },
       {
         "title": "Topic 2",

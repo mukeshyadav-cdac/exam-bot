@@ -1,6 +1,7 @@
 import config from '../config.json';
 import * as facebookMessage from '../facebook/facebook_messages.js';
 import request from 'request';
+var RECASTAI 			= require('../intents/recastai.js');
 
 let setGreetingText = (req, res) => {
   let fbData = {
@@ -62,12 +63,21 @@ let getFBMessage = (req, res) => {
       entry.messaging.forEach( (event)  => {
         if (event.postback) {
           facebookMessage.receivedPostbackMessage(event);
+         
         } else if (event.message && event.message.quick_reply) {
           console.log(event)
           console.log('cccccccccxxcxcxcxcxcxcxcxcxcxc')
           facebookMessage.receivedQuickReplyMessage(event);
-        } else {
+        } else if (event.message && event.message.text){
           console.log("Webhook received unknown event: ", event);
+           console.log("here_______", event.message.text);
+           RECASTAI.CallRecast(event.message.text, function(recastObject) 
+           {
+                  console.log('====recastObject====',JSON.stringify(recastObject));
+                  event.message.payload = recastObject.intent;
+                  facebookMessage.receivedTextMessage(event);
+			      });
+
         }
       });
     });

@@ -1,13 +1,18 @@
 {
   "beginner": {
-    "topic_1": [
-      "https://image.ibb.co/c1Omt5/40_4.jpg",
-      "https://image.ibb.co/dPd86Q/40.jpg",
-      "https://image.ibb.co/faK4fk/60.jpg",
-      "https://image.ibb.co/nEDKD5/100.jpg",
-      "https://image.ibb.co/c1Omt5/40_4.jpg"
-    ],
-    "topic_2": [
+    "bar": [
+      "https://i1.wp.com/getgoya.files.wordpress.com/2017/07/1_bar.png",
+      "https://i1.wp.com/getgoya.files.wordpress.com/2017/07/2_bar.png",
+      "https://i1.wp.com/getgoya.files.wordpress.com/2017/07/3_bar.png",
+      "https://i1.wp.com/getgoya.files.wordpress.com/2017/07/4_bar.png",
+      "https://i1.wp.com/getgoya.files.wordpress.com/2017/07/5_bar.png",
+      "https://i1.wp.com/getgoya.files.wordpress.com/2017/07/6_bar.png",
+      "https://i1.wp.com/getgoya.files.wordpress.com/2017/07/7_bar.png",
+      "https://i1.wp.com/getgoya.files.wordpress.com/2017/07/8_bar.png",
+      "https://i1.wp.com/getgoya.files.wordpress.com/2017/07/9_bar.png",
+      "https://i1.wp.com/getgoya.files.wordpress.com/2017/07/10_bar.png"
+      ],
+    "resto": [
       "https://image.ibb.co/c1Omt5/40_4.jpg",
       "https://image.ibb.co/dPd86Q/40.jpg",
       "https://image.ibb.co/faK4fk/60.jpg",
@@ -48,12 +53,17 @@
   },
 
   "advanced": {
-    "topic_1": [
-      "https://image.ibb.co/c1Omt5/40_4.jpg",
-      "https://image.ibb.co/dPd86Q/40.jpg",
-      "https://image.ibb.co/faK4fk/60.jpg",
-      "https://image.ibb.co/nEDKD5/100.jpg",
-      "https://image.ibb.co/c1Omt5/40_4.jpg"
+    "amour": [
+      "https://i0.wp.com/getgoya.files.wordpress.com/2017/07/amour_1.png?ssl=1&w=450",
+      "https://i0.wp.com/getgoya.files.wordpress.com/2017/07/amour_2.png?ssl=1&w=450",
+      "https://i0.wp.com/getgoya.files.wordpress.com/2017/07/amour_3.png?ssl=1&w=450",
+      "https://i0.wp.com/getgoya.files.wordpress.com/2017/07/amour_4.png?ssl=1&w=450",
+      "https://i0.wp.com/getgoya.files.wordpress.com/2017/07/amour_5.png?ssl=1&w=450",
+      "https://i0.wp.com/getgoya.files.wordpress.com/2017/07/amour_6.png?ssl=1&w=450",
+      "https://i0.wp.com/getgoya.files.wordpress.com/2017/07/amour_7.png?ssl=1&w=450",
+      "https://i0.wp.com/getgoya.files.wordpress.com/2017/07/amour_8.png?ssl=1&w=450",
+      "https://i0.wp.com/getgoya.files.wordpress.com/2017/07/amour_9.png?ssl=1&w=450",
+      "https://i0.wp.com/getgoya.files.wordpress.com/2017/07/amour_10.png?ssl=1&w=450"
     ],
     "topic_2": [
       "https://image.ibb.co/c1Omt5/40_4.jpg",

@@ -5,10 +5,10 @@ let localStorage = new LocalStorage('./localDatabase');
 
 let intent = (inputData, object, cb) => {
   let content = require('../contents/'+inputData.bot+'.json');
-  let storageKey = inputData.userId + '_advanced_topic_1';
+  let storageKey = inputData.userId + '_beginner_bar';
   let userLevel = localStorage.getItem(storageKey);
-  let contentData = {title: "Next", payload: "advanced_topic_1"};
-  const images = require('../contents/images.json')["advanced"]["topic_1"];
+  let contentData = {title: "Next", payload: "beginner_bar"};
+  const images = require('../contents/images.json')["beginner"]["bar"];
 
   if ( userLevel  ) {
     if ( images[(parseInt(userLevel) + 1)] ) {
